@@ -1,0 +1,73 @@
+<!doctype html>
+<html lang="id">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <!-- CSRF Token -->
+    <meta name="csrf-token" content="I1Pdzmnlp7ZAB19uHoC6P5HooZ1rtYVzLFCzenzy">
+    <meta name="Description" content="Universitas Perjuangan Kota Tasikmalaya">
+    <meta name="author" content="Ari Bahtiar, Ihsan Fawzan, M Kosih">
+
+    <title>Universitas Perjuangan Tasikmalaya</title>
+
+
+    <link rel="stylesheet" href="/template.css">
+
+    <!-- Web Application Manifest -->
+<link rel="manifest" href="https://simantap.unper.ac.id/manifest.json">
+<!-- Chrome for Android theme color -->
+<meta name="theme-color" content="#006a4e">
+
+<!-- Add to homescreen for Chrome on Android -->
+<meta name="mobile-web-app-capable" content="yes">
+<meta name="application-name" content="SIMANTAP">
+<link rel="icon" sizes="512x512" href="/images/icons2/icon-512x512.png">
+
+<!-- Add to homescreen for Safari on iOS -->
+<meta name="apple-mobile-web-app-capable" content="yes">
+<meta name="apple-mobile-web-app-status-bar-style" content="black">
+<meta name="apple-mobile-web-app-title" content="SIMANTAP">
+<link rel="apple-touch-icon" href="/images/icons2/icon-512x512.png">
+
+
+
+
+<!-- Tile for Win8 -->
+<meta name="msapplication-TileColor" content="#006a4e">
+<meta name="msapplication-TileImage" content="/images/icons2/icon-512x512.png">
+
+<script type="text/javascript">
+    // Initialize the service worker
+    if ('serviceWorker' in navigator) {
+        navigator.serviceWorker.register('/serviceworker.js', {
+            scope: '.'
+        }).then(function (registration) {
+            // Registration was successful
+            console.log('Laravel PWA: ServiceWorker registration successful with scope: ', registration.scope);
+        }, function (err) {
+            // registration failed :(
+            console.log('Laravel PWA: ServiceWorker registration failed: ', err);
+        });
+    }
+</script>    
+</head>
+
+<body>
+        
+    <input type="hidden" value="" id="last_menu">
+
+    <div id="app-silat"></div>
+
+    <script>
+        let csrf_tokeenn = "I1Pdzmnlp7ZAB19uHoC6P5HooZ1rtYVzLFCzenzy";
+        if(csrf_tokeenn !== ''){
+            localStorage.setItem("csrf_token",csrf_tokeenn);
+        }
+    </script>
+    
+         <script src="/js/app.js?id=f5cbf2676c0dbc5ca471"></script>
+     
+</body>
+
+</html>
