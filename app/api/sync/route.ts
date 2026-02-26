@@ -18,11 +18,10 @@ export async function POST(req: Request) {
             const chromium = await import('@sparticuz/chromium');
 
             browser = await puppeteer.launch({
-                args: [...chromium.default.args, '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process'],
+                args: [...chromium.default.args, '--no-sandbox', '--disable-setuid-sandbox'],
                 defaultViewport: chromium.default.defaultViewport,
                 executablePath: await chromium.default.executablePath(),
-                headless: chromium.default.headless,
-                ignoreHTTPSErrors: true,
+                headless: chromium.default.headless as any,
             });
         } else {
             // Local dev
