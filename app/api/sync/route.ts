@@ -1,5 +1,7 @@
 import { NextResponse } from 'next/server';
 
+export const maxDuration = 60;
+
 export async function POST(req: Request) {
     try {
         const { username, password } = await req.json();
@@ -16,10 +18,11 @@ export async function POST(req: Request) {
             const chromium = await import('@sparticuz/chromium');
 
             browser = await puppeteer.launch({
-                args: chromium.default.args,
+                args: [...chromium.default.args, '--no-sandbox', '--disable-setuid-sandbox', '--disable-dev-shm-usage', '--single-process'],
                 defaultViewport: chromium.default.defaultViewport,
                 executablePath: await chromium.default.executablePath(),
-                headless: chromium.default.headless === 'shell' ? true : chromium.default.headless,
+                headless: chromium.default.headless,
+                ignoreHTTPSErrors: true,
             });
         } else {
             // Local dev
